@@ -1,0 +1,50 @@
+<html>
+
+<body>
+  <div id="container">
+    <h2>Person's Form</h2>
+    <form id="person-form">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+
+</html>
+
+<script>
+  let personForm = document.getElementById('person-form');
+
+  window.addEventListener('load', initForm = () => {
+
+    body = (type, name, label) => {
+      input = document.createElement('input');
+      input.type = type;
+      input.name = name;
+      input.id = name;
+
+      let inputLabel = document.createElement('label');
+      label.innerText = inputLabel;
+
+      personForm.prepend(input),
+        personForm.prepend(inputLabel);
+    }
+
+    body('number', 'age', 'Age: ')
+    body('text', 'lastName', 'Last Name: ')
+    body('text', 'firstName', 'First Name: ')
+
+    personForm.addEventListener('submit', submitForm = (event) => {
+      event.preventDefault();
+      const firstName = document.getElementById("firstName");
+      const lastName = document.getElementById("lastName");
+      const age = document.getElementById("age");
+
+      let person = {
+        firstname: firstName.value,
+        lastname: lastName.value,
+        age: age.value
+      }
+      console.log(person);
+    })
+  })
+</script>
